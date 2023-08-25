@@ -2,35 +2,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <!-- import Vue-->
     <script src="https://unpkg.com/vue@next"></script>
     <!-- import CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/element-plus/dist/index.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
     <!-- import JavaScript -->
     <script src="https://unpkg.com/element-plus"></script>
-    <!-- import day.js-->
+    <!--import day.js-->
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-
-    <title>Plan</title>
+    <title>plan</title>
   </head>
   <body>
     <div id="app">
-      <el-button>{{ message }}</el-button>
+      <el-button @click="count++">{{ message }}</el-button>
+      {{count}}
     </div>
     <script>
-      const { createApp, ref } = Vue;
+      const { createApp, ref } = Vue
 
-      createApp({
-        setup() {
-          const message = ref("Hello vue!");
+      const app = createApp({
+        // setup() {
+        //   const message = ref('Hello vue!')
+        //   return {
+        //     count: 1,
+        //     message,
+        //   }
+        // },
+        data() {
           return {
-            message,
-          };
+            count: 1,
+            message: "Hello Element Plus",
+          }
         },
-      }).use(ElementPlus).mount("#app");
+        methods: {
+          plus() {
+            this.count++
+          }
+        },
+        mounted() {
+          console.log(dayjs().format())
+        }
+      })
+      app.use(ElementPlus)
+      app.mount("#app")
     </script>
   </body>
 </html>
+
+
