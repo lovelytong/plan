@@ -1,0 +1,29 @@
+body {
+  background-color: aqua;
+}
+.set {
+  display: flex;
+  justify-content: space-between;
+}
+.calendar {
+  border: 1px solid red;
+  width: 700px;
+  margin-top: 30px;
+
+}
+.c-head {
+  width: 700px;
+  display: flex;
+}
+.week {
+  width: 700px;
+  display: flex;
+}
+.day {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}

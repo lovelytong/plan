@@ -1,0 +1,58 @@
+const { createApp, ref } = Vue;
+
+const app = createApp({
+  data() {
+    return {
+      num: 21,
+      startDate: new Date(),
+      dataArr: [],
+      weekday: '一二三四五六七'.split(''),
+      isSetted: false
+    };
+  },
+  methods: {
+    handleChange(value)  {
+      console.log(value)
+    },
+    createArr(start, span) {
+      const dataArr = []
+      let temLoop = []
+      let copyStart = dayjs(start) || dayjs()
+      let i = span || 21
+      let preStart = copyStart.day() - 1 > 0 ? copyStart.day() - 1 : 6
+      while(preStart > 0) {
+        temLoop.push('')
+        preStart--
+      }
+      let currday = dayjs(copyStart)
+      while(i > 0) {
+        const showStr = currday.month() + 1 + '.' + currday.date()
+        temLoop.push(showStr)
+        if (temLoop.length === 7) {
+          dataArr.push(temLoop.slice())
+          temLoop = []
+        }
+        currday = currday.add(1, 'day')
+        i--
+      }
+      let backLen = 7 - temLoop.length
+      while(backLen > 0 && backLen < 7) {
+        temLoop.push('')
+        backLen--
+      }
+      dataArr.push(temLoop)
+      return dataArr
+    },
+    getMyCalendar() {
+      if (!this.num || !this.startDate) {
+        return
+      }
+      this.dataArr = this.createArr(this.startDate, this.num)
+    }
+  },
+  mounted() {
+    this.dataArr = this.createArr()
+  },
+});
+app.use(ElementPlus);
+app.mount("#app");

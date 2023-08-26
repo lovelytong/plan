@@ -1,51 +1,53 @@
 <html>
-  <head>
+  <link>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <script src="https://unpkg.com/vue@next"></script>
     <!-- import CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-plus/dist/index.css"
+    />
     <!-- import JavaScript -->
     <script src="https://unpkg.com/element-plus"></script>
     <!--import day.js-->
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <link rel="stylesheet" href="index.css"></link>
     <title>plan</title>
   </head>
   <body>
     <div id="app">
-      <el-button @click="count++">{{ message }}</el-button>
-      {{count}}
+      <div class="set">
+        <div>
+          <el-date-picker
+          v-model="startDate"
+          type="date"
+          placeholder="请选择计划起始日期"
+        />
+        </div>
+        <div>
+          <el-input-number v-model="num" :min="14" :max="100" />
+        </div>
+        <div>
+          <el-button type="primary" @click="getMyCalendar">生成</el-button>
+        </div>
+      </div>
+      <div class="calendar">
+        <div class="c-head">
+          <div v-for="item in weekday" class="day">{{item}}</div>
+        </div>
+        <div class="c-body">
+          <div class="week" v-for="item in dataArr">
+            <div class="day" v-for="subItem in item">
+              {{subItem}}
+            </div>
+          </div>
+        </div>
+       
+      </div>
+      
+     
     </div>
-    <script>
-      const { createApp, ref } = Vue
-
-      const app = createApp({
-        // setup() {
-        //   const message = ref('Hello vue!')
-        //   return {
-        //     count: 1,
-        //     message,
-        //   }
-        // },
-        data() {
-          return {
-            count: 1,
-            message: "Hello Element Plus",
-          }
-        },
-        methods: {
-          plus() {
-            this.count++
-          }
-        },
-        mounted() {
-          console.log(dayjs().format())
-        }
-      })
-      app.use(ElementPlus)
-      app.mount("#app")
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
-
-
