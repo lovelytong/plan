@@ -1,15 +1,15 @@
-body {
-  background-color: aqua;
-}
 .set {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 700px;
+  margin: 30px auto 0;
 }
 .calendar {
-  border: 1px solid red;
+  border: 1px dotted #e4d9ce;
   width: 700px;
-  margin-top: 30px;
-
+  margin: 80px auto 0;
+  border-radius: 16px;
 }
 .c-head {
   width: 700px;
@@ -25,5 +25,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+  border: 1px dotted #e4d9ce;
+  color:#ab6175;
 }
+.week .day:nth-child(odd) {
+  background-color: #fbe8e6;
+}
+
