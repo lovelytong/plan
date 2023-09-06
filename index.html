@@ -39,7 +39,8 @@
         <div class="c-body">
           <div class="week" v-for="item in dataArr">
             <div class="day" v-for="subItem in item">
-              {{subItem}}
+              <div>{{subItem.str}}</div>
+              <div class="num">{{subItem.index}}</div>
             </div>
           </div>
         </div>
