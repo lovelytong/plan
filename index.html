@@ -17,7 +17,7 @@
   </head>
   <body>
     <div id="app">
-      <div class="set">
+      <div class="set" v-show="print" @click="">
         <div>
           <el-date-picker
           v-model="startDate"
@@ -30,21 +30,39 @@
         </div>
         <div>
           <el-button type="primary" @click="getMyCalendar">生成</el-button>
+          <el-button type="primary" @click="startPrint">打印</el-button>
+
+        </div>
+        <div>
         </div>
       </div>
-      <div class="calendar">
-        <div class="c-head">
-          <div v-for="item in weekday" class="day">{{item}}</div>
-        </div>
-        <div class="c-body">
-          <div class="week" v-for="item in dataArr">
-            <div class="day" v-for="subItem in item">
-              <div>{{subItem.str}}</div>
-              <div class="num">{{subItem.index}}</div>
+        <div class="calendar">
+          <div class="content">
+            <div>
+              计划内容:
+            </div>
+             <div>
+              <img src="./Screenshot_20230908_112412_com.png" alt="" class="mange">
             </div>
           </div>
-        </div>
+          <div>
+            <div class="c-head">
+              <div v-for="item in weekday" class="day">{{item}}</div>
+            </div>
+            <div class="c-body">
+              <div class="week" v-for="item in dataArr">
+                <div class="day" v-for="subItem in item">
+                  <div>{{subItem.str}}</div>
+                  <div class="num">{{subItem.index}}</div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="content">
+            奖励与惩罚:
+          </div>
       </div>
+     
     </div>
     <script src="index.js"></script>
   </body>

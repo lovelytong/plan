@@ -6,13 +6,17 @@ const app = createApp({
       num: 21,
       startDate: new Date(),
       dataArr: [],
-      weekday: "一二三四五六七".split(""),
+      weekday: "周一,周二,周三,周四,周五,周六,周天".split(","),
       isSetted: false,
+      print: true,
     };
   },
   methods: {
-    handleChange(value) {
-      console.log(value);
+    startPrint() {
+      this.print = false;
+      setTimeout(() => {
+        window.print();
+      }, 1000);
     },
     createArr(start, span) {
       const dataArr = [];

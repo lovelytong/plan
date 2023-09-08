@@ -1,3 +1,4 @@
+body { -webkit-print-color-adjust: exact; }
 .set {
   display: flex;
   justify-content: space-between;
@@ -5,11 +6,28 @@
   width: 700px;
   margin: 30px auto 0;
 }
+.wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.mange {
+  height: 130px;
+}
 .calendar {
-  border: 1px dotted #e4d9ce;
+  border: 3px dotted #e4d9ce;
   width: 700px;
   margin: 80px auto 0;
   border-radius: 16px;
+}
+.content {
+  height: 150px;
+  padding: 20px;
+  box-sizing: border-box;
+  color:#ab6175;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 }
 .c-head {
   width: 700px;
@@ -19,6 +37,7 @@
   width: 700px;
   display: flex;
 }
+
 .week .day {
   width: 100px;
   height: 100px;
@@ -34,14 +53,14 @@
 }
 .c-head .day {
   width: 100px;
-  height: 100px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px dotted #e4d9ce;
   color:#ab6175;
 }
-.week .day:nth-child(odd) {
+.day:nth-child(odd) {
   background-color: #fbe8e6;
 }
 
